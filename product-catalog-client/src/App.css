@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: lightgray;
 }
 
 .App-logo {
@@ -36,7 +37,18 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.review {
+  margin: auto;
+  text-align: center;
+  width: 75%;
+}
 
+.card-header {
+  background-color: lightcoral;
+}
+.card-footer {
+  background-color: lightblue;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

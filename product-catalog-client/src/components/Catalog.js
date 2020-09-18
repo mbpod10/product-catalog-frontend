@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as RBS from "react-bootstrap";
 import { Link } from "react-router-dom";
+import APIConfig from "../APIConfig";
 
 const Catalog = (props) => {
   const [productData, setProductData] = useState([]);
@@ -13,9 +14,9 @@ const Catalog = (props) => {
   useEffect(() => {
     const makeAPIcall = () => {
       axios
-        .get(`http://localhost:4000/api/products`)
+        .get(`${APIConfig}/products`)
         .then((response) => {
-          console.log(response);
+          //   console.log(response);
           setProductData(response.data);
         })
         .catch((error) => {
@@ -25,7 +26,7 @@ const Catalog = (props) => {
     makeAPIcall();
   }, []);
 
-  console.log(productData);
+  //   console.log(productData);
 
   const productCards = productData.map((element, index) => {
     return (
@@ -58,7 +59,7 @@ const Catalog = (props) => {
         </RBS.Card.Body>
         <RBS.Card.Footer>
           <small className="text-muted">
-            <Link to={`/${element._id}/reviews`}>
+            <Link to={`/reviews/${element._id}`}>
               {" "}
               {element.reviewCount} Reviews
             </Link>
